@@ -50,8 +50,6 @@ npm start
 ```
 API runs at: `http://localhost:3000`
 
-> Note: API base URL is configured via `environment.ts`
-
 ---
 
 ## 📁 Project Structure
