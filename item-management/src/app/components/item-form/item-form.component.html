@@ -1,0 +1,80 @@
+<div class="p-4 sm:p-6 space-y-6 max-w-xl mx-auto bg-white rounded-2xl shadow-lg">
+  <!-- Header -->
+  <div class="flex items-center justify-between border-b pb-2">
+    <h2 class="text-2xl font-bold text-gray-800">
+      {{ data ? "Edit Item" : "Create Item" }}
+    </h2>
+    <button mat-icon-button (click)="dialogRef.close()" aria-label="Close">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <!-- Form -->
+  <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)" class="space-y-4">
+    <!-- Name -->
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        name="name"
+        [(ngModel)]="item.name"
+        required
+        #name="ngModel"
+        placeholder="Enter item name"
+      />
+      <mat-error *ngIf="name.invalid && name.touched">Name is required</mat-error>
+    </mat-form-field>
+
+    <!-- Type -->
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Type</mat-label>
+      <input
+        matInput
+        name="type"
+        [(ngModel)]="item.type"
+        required
+        #type="ngModel"
+        placeholder="Enter item type"
+      />
+      <mat-error *ngIf="type.invalid && type.touched">Type is required</mat-error>
+    </mat-form-field>
+
+    <!-- Category -->
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Category</mat-label>
+      <input
+        matInput
+        name="category"
+        [(ngModel)]="item.category"
+        required
+        #category="ngModel"
+        placeholder="Enter item category"
+      />
+      <mat-error *ngIf="category.invalid && category.touched">Category is required</mat-error>
+    </mat-form-field>
+
+    <!-- Price -->
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Price</mat-label>
+      <input
+        matInput
+        name="price"
+        [(ngModel)]="item.price"
+        required
+        min="0"
+        type="number"
+        #price="ngModel"
+        placeholder="Enter item price"
+      />
+      <mat-error *ngIf="price.invalid && price.touched">
+        Price must be a positive number
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Actions -->
+    <div class="flex justify-end gap-3 pt-4">
+      <button mat-stroked-button color="basic" (click)="dialogRef.close()">Cancel</button>
+      <button mat-raised-button color="primary" [disabled]="itemForm.invalid">Save</button>
+    </div>
+  </form>
+</div>

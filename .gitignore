@@ -1,0 +1,23 @@
+# Ignore node_modules in both FE and BE
+item-management/node_modules/
+item-api/node_modules/
+
+# Angular build outputs
+item-management/dist/
+item-management/.angular/
+item-management/.angular/cache/
+item-management/out-tsc/
+
+# Node backend outputs/logs (optional)
+item-api/*.log
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# npm/yarn lock files (optional)
+**/package-lock.json
